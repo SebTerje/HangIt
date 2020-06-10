@@ -22,6 +22,7 @@ namespace HangIt.App
                 
                 Console.WriteLine("Enter your guess");
                 string userGuess = Console.ReadLine().ToUpper().Trim();
+               
                 Console.WriteLine("The guessed letters are: ");
                 foreach (var character in guessedLetters)
                 {
@@ -36,7 +37,12 @@ namespace HangIt.App
                 if (isValid == true)
                 {
                     bool correctGuess = secretWord.Contains(userGuess);
-                    if (correctGuess)
+                    if (guessedLetters.Contains(char.Parse(userGuess)))
+                    {
+                        Console.WriteLine("You already guessed '{0}'", userGuess);
+                    }
+
+                    else if (correctGuess)
                     {
                         Console.WriteLine("You guessed " + userGuess);
                         guessedLetters.Add(char.Parse(userGuess));
@@ -45,7 +51,7 @@ namespace HangIt.App
                         Console.WriteLine("Correct");
                         Console.ResetColor();
                         Console.WriteLine("Guesses left: {0}", guessesLeft);
-                        Console.Clear();
+                       
                     }
                     else if (!correctGuess)
                     {
@@ -56,7 +62,7 @@ namespace HangIt.App
                         guessesLeft--;
                         Console.WriteLine("Guesses left: {0}", guessesLeft);
                         guessedLetters.Add(char.Parse(userGuess));
-                        Console.Clear();
+                        
 
 
                     }
