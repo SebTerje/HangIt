@@ -12,8 +12,19 @@ namespace HangIt.App
         {
 
             string secretWord = "GODFATHER";
-            int secretWordLength = secretWord.Length;
-            //Console.WriteLine(Underscores(secretWordLength));
+            /*List<char> bars = new List<char>();
+            foreach (char letter in bars)
+            {
+                Console.Write("- ");
+            }
+            Console.WriteLine();
+            for (int i = 0; i < secretWord.Length; i++)
+            {
+                bars.Add('-');
+            }*/
+            
+            
+            
             int guessesLeft = 3;
 
             HashSet<char> guessedLetters = new HashSet<char>();
@@ -22,7 +33,17 @@ namespace HangIt.App
                 
                 Console.WriteLine("Enter your guess");
                 string userGuess = Console.ReadLine().ToUpper().Trim();
-               
+               /* int test = Array.IndexOf(bars, userGuess[0]);
+               // bars[Array.IndexOf(bars, userGuess[0])] = char.Parse(userGuess);
+                for (int i = 0; i < secretWord.Length; i++)
+                {
+                    if (char.Parse(userGuess) == bars[i])
+                        bars[i] = char.Parse(userGuess);
+                }
+                Console.WriteLine(string.Join("", bars));*/
+
+                
+
                 Console.WriteLine("The guessed letters are: ");
                 foreach (var character in guessedLetters)
                 {
@@ -40,6 +61,7 @@ namespace HangIt.App
                     if (guessedLetters.Contains(char.Parse(userGuess)))
                     {
                         Console.WriteLine("You already guessed '{0}'", userGuess);
+                        continue;
                     }
 
                     else if (correctGuess)
@@ -51,6 +73,7 @@ namespace HangIt.App
                         Console.WriteLine("Correct");
                         Console.ResetColor();
                         Console.WriteLine("Guesses left: {0}", guessesLeft);
+                        Console.WriteLine(MaskedSecretWord(secretWord,guessedLetters));
                        
                     }
                     else if (!correctGuess)
@@ -62,7 +85,7 @@ namespace HangIt.App
                         guessesLeft--;
                         Console.WriteLine("Guesses left: {0}", guessesLeft);
                         guessedLetters.Add(char.Parse(userGuess));
-                        
+                        Console.WriteLine(MaskedSecretWord(secretWord,guessedLetters));
 
 
                     }
@@ -87,14 +110,25 @@ namespace HangIt.App
 
 
         }
+
+       private static string MaskedSecretWord(string secretWord, HashSet<char> guessedLetters)
+       {
+            string result = "";
+            foreach (char i in secretWord)
+            {
+                if (guessedLetters.Contains(i))
+                    result += i;
+                else
+                    result += '-';
+            }
+            return result;
+       }
+
         public static bool ValidGuess(string userGuess)
         {
             return (Regex.IsMatch(userGuess.ToUpper().Trim(), "^[A-ZÆØÅ]$"));
         }
-        static string Underscores(int n)
-        {
-            return new String('_', n);
-        }
+      
 
     }
 
