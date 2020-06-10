@@ -25,15 +25,20 @@ namespace HangIt.App
                     if (correctGuess)
                     {
                         Console.WriteLine("You guessed " + userGuess);
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Correct");
+                        Console.ResetColor();
                         Console.WriteLine("Guesses left: {0}", guessesLeft);
                     }
                     else if (!correctGuess)
                     {
                         Console.WriteLine("You guessed " + userGuess);
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Wrong");
+                        Console.ResetColor();
                         guessesLeft--;
                         Console.WriteLine("Guesses left: {0}", guessesLeft);
+                         
                     }
 
 
