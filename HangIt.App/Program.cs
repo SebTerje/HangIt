@@ -10,6 +10,8 @@ namespace HangIt.App
         {
 
             string secretWord = "GODFATHER";
+            int secretWordLength = secretWord.Length;
+            Console.WriteLine(Underscores(secretWordLength));
             int guessesLeft = 3;
             while (true && (guessesLeft>0))
             {
@@ -65,7 +67,11 @@ namespace HangIt.App
         {
             return (Regex.IsMatch(userGuess.ToUpper().Trim(), "^[A-ZÆØÅ]$"));
         }
-        
+        static string Underscores(int n)
+        {
+            return new String('_', n);
+        }
+
     }
 
 
