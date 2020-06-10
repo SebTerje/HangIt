@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 
@@ -11,13 +13,23 @@ namespace HangIt.App
 
             string secretWord = "GODFATHER";
             int secretWordLength = secretWord.Length;
-            Console.WriteLine(Underscores(secretWordLength));
+            //Console.WriteLine(Underscores(secretWordLength));
             int guessesLeft = 3;
+
+            HashSet<char> guessedLetters = new HashSet<char>();
             while (true && (guessesLeft>0))
             {
+                
                 Console.WriteLine("Enter your guess");
                 string userGuess = Console.ReadLine().ToUpper().Trim();
-                
+                Console.WriteLine("The guessed letters are: ");
+                foreach (var character in guessedLetters)
+                {
+                    Console.Write(character + " ");
+                    
+                }
+                Console.WriteLine();
+
 
                 bool isValid = ValidGuess(userGuess);
 
@@ -27,10 +39,13 @@ namespace HangIt.App
                     if (correctGuess)
                     {
                         Console.WriteLine("You guessed " + userGuess);
+                        guessedLetters.Add(char.Parse(userGuess));
+                        
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Correct");
                         Console.ResetColor();
                         Console.WriteLine("Guesses left: {0}", guessesLeft);
+                        Console.Clear();
                     }
                     else if (!correctGuess)
                     {
@@ -40,7 +55,10 @@ namespace HangIt.App
                         Console.ResetColor();
                         guessesLeft--;
                         Console.WriteLine("Guesses left: {0}", guessesLeft);
-                         
+                        guessedLetters.Add(char.Parse(userGuess));
+                        Console.Clear();
+
+
                     }
 
 
