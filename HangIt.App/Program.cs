@@ -22,26 +22,7 @@ namespace HangIt.App
 
             Console.WriteLine("Game over!");
             
-           /* while (true) //guessLength > 1) 
-            {
-
-
-                if (Regex.IsMatch(userGuess.ToUpper().Trim(),"^[A-ZÆØÅ]$"))
-                {
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid guess");
-                    Console.WriteLine("Guess again");
-                    userGuess = Console.ReadLine();
-                }
-
-               
-
-            }
-            Console.WriteLine("You guessed: " + userGuess.ToUpper());
-            Console.WriteLine("Game over!");*/
+          
 
 
 
