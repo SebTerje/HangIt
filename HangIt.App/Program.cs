@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text.RegularExpressions;
+
 
 namespace HangIt.App
 {
@@ -11,7 +13,23 @@ namespace HangIt.App
 
             Console.WriteLine("Enter your guess");
             string userGuess = Console.ReadLine();
-            Console.WriteLine("You guessed: " + userGuess);
+            int guessLength = userGuess.Length;
+            
+            while (guessLength > 1) 
+            {
+                Console.WriteLine("you can only guess one letter");
+                Console.WriteLine("Guess again");
+                userGuess = Console.ReadLine();
+
+                if (Regex.IsMatch(userGuess.ToUpper().Trim(),"^[A-ZÆØÅ]$"))
+                {
+                    break;
+                }
+
+               
+
+            }
+            Console.WriteLine("You guessed: " + userGuess.ToUpper());
             Console.WriteLine("Game over!");
 
 
