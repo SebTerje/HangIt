@@ -6,14 +6,17 @@ namespace HangIt.App
     {
         static void Main(string[] args)
         {
-            
 
 
-            Console.WriteLine("Hello Mr.Programmer!");
-            Console.WriteLine("YOOOOO!");
+
+            Console.WriteLine("Enter your guess");
+            string userGuess = Console.ReadLine();
+            Console.WriteLine("You guessed: " + userGuess);
+            Console.WriteLine("Game over!");
 
 
 
         }
     }
+     
 }
