@@ -52,26 +52,6 @@ namespace HangIt.App
 
 
 
-            /* while (true) //guessLength > 1) 
-             {
-
-
-                 if (Regex.IsMatch(userGuess.ToUpper().Trim(),"^[A-ZÆØÅ]$"))
-                 {
-                     break;
-                 }
-                 else
-                 {
-                     Console.WriteLine("Invalid guess");
-                     Console.WriteLine("Guess again");
-                     userGuess = Console.ReadLine();
-                 }
-
-
-
-             }
-             Console.WriteLine("You guessed: " + userGuess.ToUpper());
-             Console.WriteLine("Game over!");*/
 
 
 
@@ -80,10 +60,7 @@ namespace HangIt.App
         {
             return (Regex.IsMatch(userGuess.ToUpper().Trim(), "^[A-ZÆØÅ]$"));
         }
-        /*public static bool CorrectGuess(string userGuess)
-        {
-            return (string.)
-        }*/
+        
     }
 
 
