@@ -11,7 +11,7 @@ namespace HangIt.App
 
             string secretWord = "GODFATHER";
             int guessesLeft = 3;
-            while (true)
+            while (true && (guessesLeft>0))
             {
                 Console.WriteLine("Enter your guess");
                 string userGuess = Console.ReadLine().ToUpper().Trim();
@@ -46,7 +46,7 @@ namespace HangIt.App
             }
 
 
-
+            Console.WriteLine("Game over!");
 
 
 
