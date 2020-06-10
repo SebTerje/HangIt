@@ -19,6 +19,8 @@ namespace HangIt.App
             if (isValid) Console.WriteLine("You guessed "+userGuess.Trim().ToUpper() );
 
             else Console.WriteLine($"Invalid guess!");
+
+            Console.WriteLine("Game over!");
             
            /* while (true) //guessLength > 1) 
             {
