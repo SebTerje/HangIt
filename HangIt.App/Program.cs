@@ -13,28 +13,42 @@ namespace HangIt.App
 
             Console.WriteLine("Enter your guess");
             string userGuess = Console.ReadLine();
-            int guessLength = userGuess.Length;
+
+            bool isValid = ValidGuess(userGuess);
+
+            if (isValid) Console.WriteLine("You guessed "+userGuess.Trim().ToUpper() );
+
+            else Console.WriteLine($"Invalid guess!");
             
-            while (guessLength > 1) 
+           /* while (true) //guessLength > 1) 
             {
-                Console.WriteLine("you can only guess one letter");
-                Console.WriteLine("Guess again");
-                userGuess = Console.ReadLine();
+
 
                 if (Regex.IsMatch(userGuess.ToUpper().Trim(),"^[A-ZÆØÅ]$"))
                 {
                     break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid guess");
+                    Console.WriteLine("Guess again");
+                    userGuess = Console.ReadLine();
                 }
 
                
 
             }
             Console.WriteLine("You guessed: " + userGuess.ToUpper());
-            Console.WriteLine("Game over!");
+            Console.WriteLine("Game over!");*/
 
 
 
         }
+        public static bool ValidGuess(string userGuess)
+        {
+            return (Regex.IsMatch(userGuess.ToUpper().Trim(), "^[A-ZÆØÅ]$"));
+        }
     }
+   
      
 }
