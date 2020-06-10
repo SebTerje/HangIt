@@ -10,6 +10,7 @@ namespace HangIt.App
 
 
             Console.WriteLine("Hello Mr.Programmer!");
+            Console.WriteLine("YOOOOO!");
 
 
 
