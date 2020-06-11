@@ -166,6 +166,14 @@ namespace HangIt.App
         {
             return (Regex.IsMatch(userGuess.ToUpper().Trim(), "^[A-ZÆØÅ]$"));
         }
+        
+        /*private static string ()
+        foreach (var character in guessedLetters)
+                {
+                    Console.Write(character + " ");
+                    
+                }
+    Console.WriteLine();*/
       
 
     }
