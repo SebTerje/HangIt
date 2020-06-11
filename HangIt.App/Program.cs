@@ -12,16 +12,7 @@ namespace HangIt.App
         {
 
             string secretWord = "HUND";
-            /*List<char> bars = new List<char>();
-            foreach (char letter in bars)
-            {
-                Console.Write("- ");
-            }
-            Console.WriteLine();
-            for (int i = 0; i < secretWord.Length; i++)
-            {
-                bars.Add('-');
-            }*/
+          
             
             
             
@@ -179,13 +170,7 @@ namespace HangIt.App
             return (Regex.IsMatch(userGuess.ToUpper().Trim(), "^[A-ZÆØÅ]$"));
         }
         
-        /*private static string ()
-        foreach (var character in guessedLetters)
-                {
-                    Console.Write(character + " ");
-                    
-                }
-    Console.WriteLine();*/
+        
       
 
     }
