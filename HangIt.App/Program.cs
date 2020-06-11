@@ -11,7 +11,7 @@ namespace HangIt.App
         static void Main(string[] args)
         {
 
-            string secretWord = "GODFATHER";
+            string secretWord = "HUND";
             /*List<char> bars = new List<char>();
             foreach (char letter in bars)
             {
@@ -64,7 +64,7 @@ namespace HangIt.App
                         Console.WriteLine("You already guessed '{0}'", userGuess);
                         Console.ReadKey();
                         continue;
-                        
+
                     }
 
                     else if (correctGuess)
@@ -74,9 +74,9 @@ namespace HangIt.App
                         guessedLetters.Add(char.Parse(userGuess));
                         SuccessLine("Correct");
                         Console.WriteLine("Guesses left: {0}", guessesLeft);
-                        Console.WriteLine(MaskedSecretWord(secretWord,guessedLetters));
+                        Console.WriteLine(MaskedSecretWord(secretWord, guessedLetters));
                         Console.ReadKey();
-                       
+
                     }
                     else if (!correctGuess)
                     {
@@ -86,23 +86,33 @@ namespace HangIt.App
                         guessesLeft--;
                         Console.WriteLine("Guesses left: {0}", guessesLeft);
                         guessedLetters.Add(char.Parse(userGuess));
-                        Console.WriteLine(MaskedSecretWord(secretWord,guessedLetters));
+                        Console.WriteLine(MaskedSecretWord(secretWord, guessedLetters));
                         Console.ReadKey();
 
                     }
 
 
                 }
+
+
+                else if (Win(secretWord, guessedLetters) == true)
+                {
+                    SuccessLine("YAAAAY! You did it!!!");
+                    break;
+
+                }
+
                 else ErrorLine($"Invalid guess!");
-
-                
-
-
             }
 
+            if (guessesLeft == 0)
+            {
+                Console.WriteLine("Game over!");
+            }
 
-            Console.WriteLine("Game over!");
-
+            
+                
+            
 
 
 
@@ -131,6 +141,7 @@ namespace HangIt.App
         private static string MaskedSecretWord(string secretWord, HashSet<char> guessedLetters)
        {
             string result = "";
+            
             foreach (char i in secretWord)
             {
                 if (guessedLetters.Contains(i))
@@ -138,8 +149,18 @@ namespace HangIt.App
                 else
                     result += '-';
             }
+           
+
             return result;
        }
+        private static bool Win (string secretWord, HashSet<char> guessedLetters)
+        {
+            if (MaskedSecretWord(secretWord, guessedLetters) == secretWord)
+                return true;
+            
+            else
+                return false;
+        }
 
         public static bool ValidGuess(string userGuess)
         {
