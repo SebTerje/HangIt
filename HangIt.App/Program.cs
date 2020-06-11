@@ -101,7 +101,7 @@ namespace HangIt.App
 
             if (guessesLeft == 0)
             {
-                ErrorLine("Game over!");
+                ErrorLine("Game over over !");
             }
 
         }
