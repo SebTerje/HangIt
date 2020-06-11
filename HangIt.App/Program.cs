@@ -56,7 +56,7 @@ namespace HangIt.App
                         }
                         Console.WriteLine();
                         Console.WriteLine("You already guessed '{0}'", userGuess);
-                        Console.ReadKey();
+                        Console.ReadKey(true);
                         continue;
 
                     }
