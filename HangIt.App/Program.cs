@@ -100,18 +100,8 @@ namespace HangIt.App
 
             if (guessesLeft == 0)
             {
-                Console.WriteLine("Game over!");
+                ErrorLine("Game over!");
             }
-
-            
-                
-            
-
-
-
-
-
-
 
         }
 
