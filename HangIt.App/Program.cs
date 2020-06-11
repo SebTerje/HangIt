@@ -30,27 +30,21 @@ namespace HangIt.App
             HashSet<char> guessedLetters = new HashSet<char>();
             while (true && (guessesLeft>0))
             {
+                if (Win(secretWord, guessedLetters) == true)
+                {
+                    SuccessLine("YAAAAAAAAAY!" + "\nYou did it!!!!");
+                    break;
+                }
+                
+               else 
                 
                 Console.WriteLine("Enter your guess");
                 string userGuess = Console.ReadLine().ToUpper().Trim();
-               /* int test = Array.IndexOf(bars, userGuess[0]);
-               // bars[Array.IndexOf(bars, userGuess[0])] = char.Parse(userGuess);
-                for (int i = 0; i < secretWord.Length; i++)
-                {
-                    if (char.Parse(userGuess) == bars[i])
-                        bars[i] = char.Parse(userGuess);
-                }
-                Console.WriteLine(string.Join("", bars));*/
+               
 
                 
 
-                Console.WriteLine("The guessed letters are: ");
-                foreach (var character in guessedLetters)
-                {
-                    Console.Write(character + " ");
-                    
-                }
-                Console.WriteLine();
+                
 
 
                 bool isValid = ValidGuess(userGuess);
@@ -58,9 +52,18 @@ namespace HangIt.App
                 if (isValid == true)
                 {
                     bool correctGuess = secretWord.Contains(userGuess);
+
+                    
                     if (guessedLetters.Contains(char.Parse(userGuess)))
                     {
                         Console.Clear();
+                        Console.WriteLine("The guessed letters are: ");
+                        foreach (var character in guessedLetters)
+                        {
+                            Console.Write(character + " ");
+
+                        }
+                        Console.WriteLine();
                         Console.WriteLine("You already guessed '{0}'", userGuess);
                         Console.ReadKey();
                         continue;
@@ -70,6 +73,13 @@ namespace HangIt.App
                     else if (correctGuess)
                     {
                         Console.Clear();
+                        Console.WriteLine("The guessed letters are: ");
+                        foreach (var character in guessedLetters)
+                        {
+                            Console.Write(character + " ");
+
+                        }
+                        Console.WriteLine();
                         Console.WriteLine("You guessed " + userGuess);
                         guessedLetters.Add(char.Parse(userGuess));
                         SuccessLine("Correct");
@@ -81,6 +91,13 @@ namespace HangIt.App
                     else if (!correctGuess)
                     {
                         Console.Clear();
+                        Console.WriteLine("The guessed letters are: ");
+                        foreach (var character in guessedLetters)
+                        {
+                            Console.Write(character + " ");
+
+                        }
+                        Console.WriteLine();
                         Console.WriteLine("You guessed " + userGuess);
                         ErrorLine("Wrong");
                         guessesLeft--;
@@ -95,12 +112,7 @@ namespace HangIt.App
                 }
 
 
-                else if (Win(secretWord, guessedLetters) == true)
-                {
-                    SuccessLine("YAAAAY! You did it!!!");
-                    break;
-
-                }
+                
 
                 else ErrorLine($"Invalid guess!");
             }
