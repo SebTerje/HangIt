@@ -12,7 +12,7 @@ namespace HangIt.App
         {
 
             string secretWord = "HUND";
-            int guessesLeft = 3;
+            int guessesLeft = 10;
 
             HashSet<char> guessedLetters = new HashSet<char>();
             while (true && (guessesLeft>0))
