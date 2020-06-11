@@ -68,20 +68,16 @@ namespace HangIt.App
                     {
                         Console.WriteLine("You guessed " + userGuess);
                         guessedLetters.Add(char.Parse(userGuess));
-                        
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Correct");
-                        Console.ResetColor();
+                        SuccessLine("Correct");
                         Console.WriteLine("Guesses left: {0}", guessesLeft);
                         Console.WriteLine(MaskedSecretWord(secretWord,guessedLetters));
                        
                     }
                     else if (!correctGuess)
                     {
+                        
                         Console.WriteLine("You guessed " + userGuess);
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Wrong");
-                        Console.ResetColor();
+                        ErrorLine("Wrong");
                         guessesLeft--;
                         Console.WriteLine("Guesses left: {0}", guessesLeft);
                         guessedLetters.Add(char.Parse(userGuess));
@@ -92,7 +88,7 @@ namespace HangIt.App
 
 
                 }
-                else Console.WriteLine($"Invalid guess!");
+                else ErrorLine($"Invalid guess!");
 
                 
 
@@ -111,7 +107,22 @@ namespace HangIt.App
 
         }
 
-       private static string MaskedSecretWord(string secretWord, HashSet<char> guessedLetters)
+        private static void ErrorLine(string message)
+        {
+            
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
+        private static void SuccessLine(string message)
+        {
+            
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
+
+        private static string MaskedSecretWord(string secretWord, HashSet<char> guessedLetters)
        {
             string result = "";
             foreach (char i in secretWord)
