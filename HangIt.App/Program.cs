@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -10,8 +11,8 @@ namespace HangIt.App
     {
         static void Main(string[] args)
         {
-
-            string secretWord = "HUND";
+          
+            string secretWord = "TOALETT";
             int guessesLeft = 10;
 
             HashSet<char> guessedLetters = new HashSet<char>();
