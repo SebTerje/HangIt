@@ -12,10 +12,6 @@ namespace HangIt.App
         {
 
             string secretWord = "HUND";
-          
-            
-            
-            
             int guessesLeft = 3;
 
             HashSet<char> guessedLetters = new HashSet<char>();
@@ -56,7 +52,7 @@ namespace HangIt.App
                         }
                         Console.WriteLine();
                         Console.WriteLine("You already guessed '{0}'", userGuess);
-                        Console.ReadKey();
+                        Console.ReadKey(true);
                         continue;
 
                     }
@@ -76,7 +72,7 @@ namespace HangIt.App
                         SuccessLine("Correct");
                         Console.WriteLine("Guesses left: {0}", guessesLeft);
                         Console.WriteLine(MaskedSecretWord(secretWord, guessedLetters));
-                        Console.ReadKey();
+                        Console.ReadKey(true);
 
                     }
                     else if (!correctGuess)
@@ -95,7 +91,7 @@ namespace HangIt.App
                         Console.WriteLine("Guesses left: {0}", guessesLeft);
                         guessedLetters.Add(char.Parse(userGuess));
                         Console.WriteLine(MaskedSecretWord(secretWord, guessedLetters));
-                        Console.ReadKey();
+                        Console.ReadKey(true);
 
                     }
 
