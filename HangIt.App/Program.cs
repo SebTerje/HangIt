@@ -60,34 +60,29 @@ namespace HangIt.App
                     bool correctGuess = secretWord.Contains(userGuess);
                     if (guessedLetters.Contains(char.Parse(userGuess)))
                     {
-                        Console.Clear();
                         Console.WriteLine("You already guessed '{0}'", userGuess);
-                        Console.ReadKey();
                         continue;
-                        
                     }
 
                     else if (correctGuess)
                     {
-                        Console.Clear();
                         Console.WriteLine("You guessed " + userGuess);
                         guessedLetters.Add(char.Parse(userGuess));
                         SuccessLine("Correct");
                         Console.WriteLine("Guesses left: {0}", guessesLeft);
                         Console.WriteLine(MaskedSecretWord(secretWord,guessedLetters));
-                        Console.ReadKey();
                        
                     }
                     else if (!correctGuess)
                     {
-                        Console.Clear();
+                        
                         Console.WriteLine("You guessed " + userGuess);
                         ErrorLine("Wrong");
                         guessesLeft--;
                         Console.WriteLine("Guesses left: {0}", guessesLeft);
                         guessedLetters.Add(char.Parse(userGuess));
                         Console.WriteLine(MaskedSecretWord(secretWord,guessedLetters));
-                        Console.ReadKey();
+
 
                     }
 
@@ -116,7 +111,6 @@ namespace HangIt.App
         {
             
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.BackgroundColor = ConsoleColor.Magenta;
             Console.WriteLine(message);
             Console.ResetColor();
         }
