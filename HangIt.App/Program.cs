@@ -28,12 +28,6 @@ namespace HangIt.App
                 Console.WriteLine("Enter your guess");
                 string userGuess = Console.ReadLine().ToUpper().Trim();
                
-
-                
-
-                
-
-
                 bool isValid = ValidGuess(userGuess);
 
                 if (isValid == true)
